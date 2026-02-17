@@ -21,7 +21,6 @@ addtaskbutton.addEventListener("click",()=>{
     console.log(tasks)
 });
 
-
 function rendertask(task)
 {  
     // console.log(task.text);
