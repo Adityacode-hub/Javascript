@@ -22,7 +22,7 @@ async function getdata(){
 //    const blogdata=await fetchpostdata();
 //     const commitdata=await fetchcommitdata();
 
-const[blogdata,commitdata]=await Promise.all([fetchpostdata(),fetchcommitdata()]);
+const[blogdata,commitdata]=await Promise.all([fetchpostdata(),fetchcommitdata()]);//this is the online for the async and await use
 
 
 
