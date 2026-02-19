@@ -1,8 +1,11 @@
 //page loads then it is a event listener
 document.addEventListener("DOMContentLoaded",()=>{
+    //Button
     const checkoutbutton=document.getElementById("checkout-btn");
+    //section
     const productlist=document.getElementById("product-list");
     const cartitems=document.getElementById("cart-items");
+    //ui
     const emptycart=document.getElementById("empty-cart");
     const totalprice=document.getElementById("total-price");
     const totalcartitems=document.getElementById("cart-total");
@@ -32,6 +35,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
+//product ui rendering
 
        const cart=[]; //empty cart
        products.forEach(product => {
@@ -57,12 +61,15 @@ document.addEventListener("DOMContentLoaded",()=>{
         addtocart(product);
     }
        });
+       //add to cart
        function addtocart(product)
        {
         cart.push(product);
         rendercart(cart);
         
        }
+
+//render the cart ui
 
        function rendercart()
        {
@@ -74,9 +81,10 @@ document.addEventListener("DOMContentLoaded",()=>{
               totalcartitems.classList.remove('hidden');
               cart.forEach((item,index)=>{
     total+=item.price
-    const cartItem=document.createElement('div')
+    const cartItem=document.createElement('div');
     cartItem.innerHTML=`
     ${item.name}-$${item.price}
+    <button class="delete-btn" data-index="${index}">Delete</button>
     
     `
     cartitems.appendChild(cartItem);
@@ -94,5 +102,13 @@ document.addEventListener("DOMContentLoaded",()=>{
         cart.length=0
         alert("checkout successfully");
         rendercart();
+       })
+       cartitems.addEventListener("click",(e)=>{
+ if(e.target.classList.contains('delete-btn'))
+ {
+    const index=e.target.getAttribute("data-index");
+    cart.splice(index,1); //i have to remove the single element then i have given 1 else wanted two then 
+    rendercart();
+ }
        })
 });
