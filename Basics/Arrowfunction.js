@@ -75,6 +75,10 @@ it will give the window object does not ability to pass the object
  console.log(crteamaker1("green tea"))
  
 
+// arrow function is the type of the self returning nature that is why it is used instead of function inside the function as we have written as above
 
+const teamaker1 = () => 
+    (teatype) => `MAKING:${teatype}`;
 
+console.log(teamaker1()("green tea"));
 
